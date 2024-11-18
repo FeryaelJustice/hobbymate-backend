@@ -3,12 +3,20 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint src/**/*.js --quiet --fix",
+    "release": "standard-version && git push --follow-tags --no-verify",
+    "prepare": "husky",
+    "pre-commit": "npm run lint",
+    "pre-push": "npm run release"
   },
-  "keywords": ["hobbymate", "backend"],
+  "keywords": [
+    "hobbymate",
+    "backend"
+  ],
   "author": "FeryaelJustice",
   "license": "ISC",
   "description": "HobbyMate backend",
+  "type": "module",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.3",
@@ -17,5 +25,12 @@
     "express": "^4.21.1",
     "jsonwebtoken": "^9.0.2",
     "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "eslint": "^9.15.0",
+    "husky": "^9.1.7",
+    "standard-version": "^9.5.0"
   }
 }
