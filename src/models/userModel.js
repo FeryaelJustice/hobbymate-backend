@@ -1,4 +1,4 @@
-import pool from "../config/db.js";
+import pool from "../database/db.js";
 
 const createUser = async (email, hashedPassword, fullName) => {
     const query = `

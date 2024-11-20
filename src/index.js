@@ -3,7 +3,7 @@ import express from "express";
 import cors from "cors";
 import authRoutes from "./routes/authRoutes.js";
 import mainRoutes from "./routes/mainRoutes.js";
-import pool from "./config/db.js";
+import pool from "./database/db.js";
 
 const app = express();
 
@@ -12,7 +12,9 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.get("/", (req, res) => {res.sendStatus(200);});
+app.get("/", (req, res) => {
+    res.sendStatus(200);
+});
 app.use("/auth", authRoutes);
 app.use("/main", mainRoutes);
 
